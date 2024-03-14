@@ -2,17 +2,8 @@ import mysql.connector
 import bcrypt,sys
 
 db= mysql.connector.connect(host='localhost',user='root',password='', database='BMS')
-
 myc=db.cursor()
-
 myc.execute('CREATE DATABASE IF NOT EXISTS BMS')
-# myc.execute("Drop Table PassWord_Admin")
-# myc.execute("Drop Table Admin")
-# myc.execute("Drop Table Customers")
-
-
-# myc.execute("Drop Table PassWord_Customer")
-
 myc.execute("CREATE TABLE IF NOT EXISTS Admin(AID int NOT NULL AUTO_INCREMENT, AdName varchar(255), Official_Position varchar(255), Email varchar(255), PASSWORD varchar(255), PRIMARY KEY (AID))")
 myc.execute('CREATE TABLE IF NOT EXISTS Customers(CID int NOT NULL AUTO_INCREMENT, AccountNumber int, CName varchar(255), Address varchar(255), Balance float, PASSWORD varchar(255), PRIMARY KEY(CID))')
 # myc.execute('CREATE TABLE IF NOT EXISTS PassWord_Admin(AID int NOT NULL, Salt varchar(255),FOREIGN KEY (AID) REFERENCES Admin(AID))')
@@ -262,10 +253,6 @@ def customer_menu(id):
         customer_menu(se[0])
     
 menu()
-
-    
-
-        
 
 
     
